@@ -1,5 +1,5 @@
 {
-  "name": "yoga-wasm",
+  "name": "@snek/yoga-wasm",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
