@@ -4,7 +4,7 @@ all: build/yoga.js build/index.js
 
 build/yoga.js: build yoga/yoga/*.cpp yoga/yoga/**/*.cpp src/*.cc
 	$(CC) yoga/yoga/*.cpp yoga/yoga/**/*.cpp src/*.cc \
-		--bind -Os --memory-init-file 0 --llvm-lto 1 \
+		--bind -Os --memory-init-file 0 -flto \
 		-Iyoga \
 		-fno-exceptions \
 		-s WASM=1 \
@@ -16,6 +16,7 @@ build/yoga.js: build yoga/yoga/*.cpp yoga/yoga/**/*.cpp src/*.cc
 		-s ASSERTIONS=0 \
 		-s ALLOW_MEMORY_GROWTH=1 \
 		-s MODULARIZE=1 \
+		-s NODEJS_CATCH_EXIT=0 \
 		-o build/yoga.js
 
 build/index.js: build index.mjs
